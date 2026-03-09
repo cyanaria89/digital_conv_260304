@@ -21,5 +21,14 @@ public class DoubleForEx {
             }
             System.out.println();
         }
+
+        System.out.println();
+
+        for (int i = num; i > 0; i--) {
+            for (int j = 1; j <= num; j++) {
+                System.out.print((j >= i ? "* " : "  "));
+            }
+            System.out.println();
+        }
     }
 }
