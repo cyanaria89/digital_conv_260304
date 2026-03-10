@@ -76,13 +76,14 @@ public class ArrayEx {
         System.out.print("Color2 : "); color2 = sc.nextLine();
         System.out.print("Color3 : "); color3 = sc.nextLine();
 
-        String temp1 = "", temp2 = "";
+        int temp1 = 0, temp2 = 0;
         int temp3 = 0;
         for (int i = 0; i < regi.length; i++) {
-            if (regi[i].color.equals(color1)) temp1 = regi[i].reg;
-            if (regi[i].color.equals(color2)) temp2 = regi[i].reg;
+            if (regi[i].color.equals(color1)) temp1 = Integer.parseInt(regi[i].reg);
+            if (regi[i].color.equals(color2)) temp2 = Integer.parseInt(regi[i].reg);
             if (regi[i].color.equals(color3)) temp3 = regi[i].cost;
         }
-        System.out.println("결과 값 : " + (Integer.parseInt(temp1 + temp2) * temp3));
+        long rst = (long) ((temp1 * 10) + temp2) * temp3;
+        System.out.println("결과 값 : " + rst);
     }
 }
