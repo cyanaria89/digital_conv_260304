@@ -1,6 +1,6 @@
 package 에어컨만들기;
 
-public class AirConAnswer {
+public class AirConAnswer_incomplete {
     boolean power;  // 전원 : ON / OFF
     int tempSet;    // 온도 설정
     int tempNow;    // 현재 온도 표시
@@ -8,7 +8,7 @@ public class AirConAnswer {
     boolean heater; // 히터 : ON / OFF
     int wind;       // 바람 세기 : 1 / 2 / 3
 
-    public AirConAnswer() {
+    public AirConAnswer_incomplete() {
         this.power = false;
         this.tempSet = 20;
         this.tempNow = 20;
