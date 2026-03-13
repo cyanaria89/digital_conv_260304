@@ -35,7 +35,7 @@ public class BankMain {
                     // 2.제 계좌 번호 입력 해서 찾아!
                     System.out.print("계좌 번호 입력 : ");
                     id = sc.nextInt(); sc.nextLine();
-                    NewBank selectedBank = null;    // null : 값이 없음
+                    NewBank selectedBank = null;    // null : 주소가 없음
                     for (NewBank bank : bankList) {
                         if (bank.getId() == id) {   // 입력 받은 계좌 번호로 조회
                             selectedBank = bank;
