@@ -9,22 +9,25 @@ public class MemberMain {
         Scanner sc = new Scanner(System.in);
 
         while (true) {
-            System.out.println("========= 회원 관리 시스템 =========");
-            System.out.println("[1]회원가입 [2]로그인 [3]전체회원조회\n[4]회원삭제 [5]총 회원수 [6]종료");
+            System.out.println("=========== 회원 관리 시스템 ===========");
+            System.out.println("[1]회원가입\t[2]로그인\t[3]전체회원조회\n[4]회원삭제\t[5]총 회원수\t[6]종료");
+            System.out.println("=".repeat(38));
             System.out.print("메뉴를 선택해주세요. : ");
             int menu = sc.nextInt(); sc.nextLine();
 
             switch (menu) {
                 case 1:
+                    boolean duplicatedId = false;
                     System.out.println("------ 회원가입 ------");
                     System.out.print("아이디 : ");
                     String userId = sc.nextLine();
                     for (Member m : members) {
                         if (m.getUserId().equals(userId)) {
                             System.out.println("이미 사용 중인 아이디입니다.");
-                            break;
+                            duplicatedId = true;
                         }
                     }
+                    if (duplicatedId) break;
                     System.out.print("이름 : ");
                     String name = sc.nextLine();
                     System.out.print("비밀번호 : ");
@@ -41,21 +44,21 @@ public class MemberMain {
                     System.out.print("패스워드 : ");
                     String logInPw = sc.nextLine();
 
-                    int cnt = 0;
+                    boolean existentId = false;
                     Member member = null;
                     for (Member m : members) {
                         if (m.getUserId().equals(logInId)) {
                             member = m;
-                            cnt++;
+                            existentId = true;
                         }
                     }
-                    if (cnt == 0) {
+                    if (!existentId) {
                         System.out.println("존재하지 않는 아이디입니다.");
                         break;
                     }
                     if (member.login(logInId, logInPw)) {
                         while (true) {
-                            System.out.print("[1]내 정보보기 [2]정보수정 [3]비밀번호 변경 [4]로그아웃\n메뉴를 선택해주세요. : ");
+                            System.out.print("[1]내 정보보기\t[2]정보수정\n[3]비밀번호 변경\t[4]로그아웃\n메뉴를 선택해주세요. : ");
                             int subMenu = sc.nextInt();
                             sc.nextLine();
                             switch (subMenu) {
