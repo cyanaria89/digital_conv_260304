@@ -87,7 +87,7 @@ public class BankMain {
                     System.out.println("계좌 생성 개수 : " + NewBank.getCount() + "개");
                     break;
                 case 5:
-                    System.out.println("업무를 종료합니다.\n이용해주셔서 감사합니다.");
+                    System.out.println("거래를 종료합니다.\n이용해주셔서 감사합니다.");
                     sc.close();
                     return;
                 default:

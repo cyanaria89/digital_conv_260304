@@ -39,6 +39,6 @@ public class NewBank {
 
     // 잔액 보기
     public void printAccount() {
-        System.out.printf("은행명 : %s\n예금주 : %s\n계좌번호 : %d\n잔액 : %,d원\n", bank, name, id, account);
+        System.out.printf("은행명\t : %s\n예금주\t : %s\n계좌번호  : %d\n잔액\t\t : %,d원\n", bank, name, id, account);
     }
 }
