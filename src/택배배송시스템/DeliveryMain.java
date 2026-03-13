@@ -1,4 +1,4 @@
-package 매개변수의다형성_택배배송시스템;
+package 택배배송시스템;
 
 import java.util.Scanner;
 
