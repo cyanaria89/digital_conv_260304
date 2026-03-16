@@ -1,34 +1,20 @@
 package 싱글톤실습;
 
-import java.util.Scanner;
-
 public class GameMain {
     public static void main(String[] args) {
-        Player p1 = new Player();
-        Player p2 = new Player();
+        Player p1 = new Player("First");
+        Player p2 = new Player("Unknown");
 
-        System.out.println("-- Player1 Settings --");
-        System.out.println("해상도 : 4096\n음량 : 30\n난이도 : Hard");
-        p1.setPlayerSettings(4096, 30, "Hard");
-        System.out.println("-- Player2 Settings --");
-        System.out.println("해상도 : 2048\n음량 : 12\n난이도 : Normal");
-        p2.setPlayerSettings(2048, 12, "Normal");
+        // 게임 설정
+        // 720p(HD / 1280 x 720), 1080p(FHD / 1920 x 1080), 1440p(QHD / 2560 x 1440), 2160p(4K UHD / 3840 x 2160)
+        p1.changeSettings("4K", 25, "Hard");
 
-        Scanner sc = new Scanner(System.in);
-        System.out.println("-- Choose Player --");
-        System.out.print("p1 or p2 : ");
-        String choose = sc.nextLine();
-        if (choose.equals("p1")) {
-            p1.setSettings(p1.getRes(), p1.getVol(), p1.getDiff());
-            p1.printSettings();
-        } else if (choose.equals("p2")) {
-            p2.setSettings(p2.getRes(), p2.getVol(), p2.getDiff());
-            p2.printSettings();
-        } else {
-            System.out.println("Choose Error!");
-        }
+        p1.printSettings();
+        p2.printSettings();
 
-//        p1.setSettings(4096, 25, "Hard");
-//        p2.printSettings();
+        // 동일 인스턴스 여부 확인
+        GameSettings s1 = GameSettings.getInstance();
+        GameSettings s2 = GameSettings.getInstance();
+        System.out.println(s1 == s2);   // 주소가 같은지 확인
     }
 }

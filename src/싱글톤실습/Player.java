@@ -1,31 +1,27 @@
 package 싱글톤실습;
 
 public class Player {
-    GameSettings settings = GameSettings.getInstance();
+    private String name;
 
-    void setSettings(int resolution, int volume, String difficulty) {
-        settings.resolution = resolution;
-        settings.volume = volume;
-        settings.difficulty = difficulty;
+    public Player(String name) { this.name = name; }
+
+    // 설정 변경
+    public void changeSettings(String resolution, int volume, String difficulty) {
+        GameSettings settings = GameSettings.getInstance();
+
+        settings.setResolution(resolution);
+        settings.setVolume(volume);
+        settings.setDifficulty(difficulty);
+
+        System.out.println(name + " > 설정 완료!");
     }
 
-    void printSettings() {
-        System.out.println("해상도\t: " + settings.resolution);
-        System.out.println("음량\t\t: " + settings.volume);
-        System.out.println("난이도\t: " + settings.difficulty);
+    // 현재 설정 확인
+    public void printSettings() {
+        GameSettings settings = GameSettings.getInstance();
+
+        System.out.println("해상도\t: " + settings.getResolution());
+        System.out.println("음량\t\t: " + settings.getVolume());
+        System.out.println("난이도\t: " + settings.getDifficulty());
     }
-
-    private int res;
-    private int vol;
-    private String diff;
-
-    public void setPlayerSettings (int res, int vol, String diff) {
-        this.res = res;
-        this.vol = vol;
-        this.diff = diff;
-    }
-
-    public int getRes() { return res; }
-    public int getVol() { return vol; }
-    public String getDiff() { return diff; }
 }

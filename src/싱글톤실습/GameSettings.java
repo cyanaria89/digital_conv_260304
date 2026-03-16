@@ -1,17 +1,26 @@
 package 싱글톤실습;
 
 public class GameSettings {
-    int resolution;
-    int volume;
-    String difficulty;
+    private String resolution;
+    private int volume;
+    private String difficulty;
 
     private static GameSettings settings = new GameSettings();
 
     private GameSettings() {
-        resolution = 1024;
+        resolution = "1080P";
         volume = 20;
-        difficulty = "normal";
+        difficulty = "Normal";
     }
 
-    static GameSettings getInstance() { return settings; }
+    public static GameSettings getInstance() { return settings; }
+
+    public String getResolution() { return resolution; }
+    public void setResolution(String resolution) { this.resolution = resolution; }
+
+    public int getVolume() { return volume; }
+    public void setVolume(int volume) { this.volume = volume; }
+
+    public String getDifficulty() { return difficulty; }
+    public void setDifficulty(String difficulty) { this.difficulty = difficulty; }
 }
