@@ -96,15 +96,14 @@ public class Main {
                 return;
         }
 
-        int time = car.totalTime(distance, passengerCount, weather);
+        int totalDistance = distance * car.moves(passengerCount);
+        int time = (int)(car.totalTime(distance, passengerCount, weather) * 60);
         // 출력
         System.out.println();
         System.out.println("=======" + car.name + "=======");
         System.out.println("이동 지역 : " + region);
-        System.out.println("총 비용 : " + car.totalCost(distance) + "원");
-        System.out.println("총 주유 횟수 : " + car.refueling(distance) + "회");
+        System.out.printf("총 비용 : %,d원\n", car.totalCost(totalDistance));
+        System.out.println("총 주유 횟수 : " + car.refueling(totalDistance) + "회");
         System.out.println("총 이동 시간 : " + (time / 60) + "시간 " + (time % 60) + "분");
-        System.out.println("총 이동 횟수 : " + car.moves(passengerCount) + "회");
-
     }
 }
