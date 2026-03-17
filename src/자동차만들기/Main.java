@@ -102,10 +102,10 @@ public class Main {
 
         // 출력
         System.out.println();
-        System.out.println("=======" + car.name + "=======");
-        System.out.println("이동 지역 : " + region);
-        System.out.printf("총 비용 : %,d원\n", car.totalCost(totalDistance));
-        System.out.println("총 주유 횟수 : " + car.refueling(totalDistance) + "회");
-        System.out.println("총 이동 시간 : " + (time / 60) + "시간 " + (time % 60) + "분");
+        System.out.println("========" + car.name + "========");
+        System.out.printf("이동 지역\t: %s\n", region);
+        System.out.printf("총 비용\t\t: %,d원\n", car.totalCost(totalDistance));
+        System.out.printf("총 주유 횟수 : %d회\n", car.refueling(totalDistance));
+        System.out.printf("총 이동 시간 : %02d시간 %02d분\n", (time / 60), (time % 60));
     }
 }
