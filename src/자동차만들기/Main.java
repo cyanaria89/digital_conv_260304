@@ -96,8 +96,10 @@ public class Main {
                 return;
         }
 
+        // 총 이동거리, 시간 계산
         int totalDistance = distance * car.moves(passengerCount);
         int time = (int)(car.totalTime(distance, passengerCount, weather) * 60);
+
         // 출력
         System.out.println();
         System.out.println("=======" + car.name + "=======");
