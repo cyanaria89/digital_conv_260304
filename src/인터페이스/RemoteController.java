@@ -7,6 +7,8 @@ package 인터페이스;
     - 모든 필드는 상수로 변경 (public static final 이 자동 추가됨) - 상속 X, 객체 생성 X
     - 다중 상속?구현? 가능 (여러개의 implements 가능)
     - 선언 interface, 호출 implements
+
+    default method : 인터페이스에 있는 구현 메서드
 */
 public interface RemoteController {
     // 단순 참고용? 상속 안됨
@@ -22,5 +24,11 @@ public interface RemoteController {
 
     static void changeBattery() {
         System.out.println("건전지를 교체 합니다.");
+    }
+
+    // default 키워드를 사용해 interface 내부에 구현 메서드 작성 가능
+    default void setMute(boolean mute) {
+        if (mute) System.out.println("음소거 ON");
+        else System.out.println("음소거 OFF");
     }
 }
