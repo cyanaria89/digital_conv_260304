@@ -62,5 +62,7 @@ public abstract class Car {
     }
 
     // 부가기능
-    abstract void setMode(boolean isMode);
+    abstract void setMode(boolean isMode);  // 상속받은 차량의 특수 기능
+    abstract void applyOptions();           // 에어컨, 오디오, 자율주행 기능이 주행에 미치는 영향 구현
+    abstract void printOptions();           // 옵션 OnOff 출력
 }

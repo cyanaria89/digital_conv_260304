@@ -63,10 +63,46 @@ public class CarMain {
             System.out.println("날씨 선택이 잘못되었습니다.");
         }
 
+        // 에어컨, 오디오, 자율주행
+        int select;
+        if (car instanceof AirCon a) {
+            while (true) {
+                System.out.print("에어컨 [1]ON [2]OFF : ");
+                select = sc.nextInt();
+                if (select == 1 || select == 2) break;
+                System.out.println("잘못된 입력입니다.");
+            }
+            if (select == 1) a.airConOnOff(true);
+            else a.airConOnOff(false);
+        }
+        if (car instanceof Audio a) {
+            while (true) {
+                System.out.print("오디오 [1]ON [2]OFF : ");
+                select = sc.nextInt();
+                if (select == 1 || select == 2) break;
+                System.out.println("잘못된 입력입니다.");
+            }
+            if (select == 1) a.audioOnOff(true);
+            else a.audioOnOff(false);
+        }
+        if (car instanceof AutoDrive a) {
+            while (true) {
+                System.out.print("에어컨 [1]ON [2]OFF : ");
+                select = sc.nextInt();
+                if (select == 1 || select == 2) break;
+                System.out.println("잘못된 입력입니다.");
+            }
+            if (select == 1) a.autoOnOff(true);
+            else a.autoOnOff(false);
+        }
+
+        car.applyOptions();
+
         int moveCnt = car.getMovingCnt(cnt);
         System.out.println("=".repeat(7) + car.getName() + "=".repeat(7));
         System.out.println("총 비용 : " + car.getTotalCost(DISTANCE[loc], moveCnt) + "원");
         System.out.println("총 주유 횟수 : " + car.getRefuelCnt(DISTANCE[loc], moveCnt) + "회");
         System.out.println("이동 시간 : " + car.getMovingTime(DISTANCE[loc], moveCnt, weather));
+        car.printOptions();
     }
 }
