@@ -13,6 +13,7 @@ public class WordSortA {
         int n = sc.nextInt();
         sc.nextLine();
 
+        // Basic
         Set<String> set = new TreeSet<>(new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
@@ -21,6 +22,17 @@ public class WordSortA {
             }
         });
 
+        /*
+        // lambda
+        Set<String> set = new TreeSet<>((o1, o2) -> {
+            if (o1.length() == o2.length()) return o1.compareTo(o2);
+            return o1.length() - o2.length();
+        });
+        */
+        /*
+        // Comparator 유틸 메서드
+        Set<String> set = new TreeSet<>(Comparator.comparingInt(String::length).thenComparing(String::compareTo));
+        */
         for (int i = 0; i < n; i++) { System.out.print("단어 입력 : "); set.add(sc.nextLine().trim()); }
 
         for (String e : set) { System.out.println(e); }
