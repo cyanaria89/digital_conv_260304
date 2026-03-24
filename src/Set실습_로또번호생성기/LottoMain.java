@@ -1,4 +1,4 @@
-package 로또번호생성기;
+package Set실습_로또번호생성기;
 
 import java.util.*;
 
