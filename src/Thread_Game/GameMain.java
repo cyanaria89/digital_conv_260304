@@ -13,7 +13,7 @@ public class GameMain {
         String wizardName = sc.nextLine();
 
         Character warrior = new Character(warriorName, 8, 2, 0.8, 0.5, 40, 500);
-        Character wizard = new Character(wizardName, 2, 8, 0.5, 0.9, 100, 250);
+        Character wizard = new Character(wizardName, 2, 28, 0.5, 0.9, 100, 250);
 
         GameThA gameThA = new GameThA(warrior, wizard);
         GameThB gameThB = new GameThB(warrior, wizard);

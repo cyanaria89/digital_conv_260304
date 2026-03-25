@@ -30,7 +30,7 @@ public class GameThA extends Thread {
                 }
 
                 if (special == 10) {
-                    System.out.println(warrior.name + " 궁극기 발동 !!! " + wizard.name + "에게" + warrior.ultimate() + "데미지를 입혔습니다.");
+                    System.out.println(warrior.name + " 궁극기 발동 !!! " + wizard.name + "에게 " + warrior.ultimate() + "데미지를 입혔습니다.");
                     endGame = wizard.setDamage(warrior.ultimate());
                 }
 
