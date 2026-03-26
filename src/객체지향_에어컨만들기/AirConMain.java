@@ -1,4 +1,4 @@
-package 에어컨만들기;
+package 객체지향_에어컨만들기;
 
 import java.util.Scanner;
 

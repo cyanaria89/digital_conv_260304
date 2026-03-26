@@ -1,4 +1,4 @@
-package 객체지향프로그램기본;
+package 객체지향_기본;
 
 import java.util.Scanner;
 

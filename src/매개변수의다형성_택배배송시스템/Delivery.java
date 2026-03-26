@@ -1,4 +1,4 @@
-package 택배배송시스템;
+package 매개변수의다형성_택배배송시스템;
 
 public class Delivery {
     String company;

@@ -1,4 +1,4 @@
-package 에어컨만들기Notion;
+package 객체지향_에어컨만들기Notion;
 
 public class PortableAirCon extends AirCon{
     private int battery = 100;

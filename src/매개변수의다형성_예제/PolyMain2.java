@@ -1,4 +1,4 @@
-package 매개변수의다형성2;
+package 매개변수의다형성_예제;
 
 import java.util.Scanner;
 

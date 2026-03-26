@@ -1,4 +1,4 @@
-package 택배배송시스템;
+package 매개변수의다형성_택배배송시스템;
 
 public class DeliveryA {
     String company; // 배송회사 이름 - 생성자로 입력(객체 생성시 입력, 공장초기화) or Setter(생성 후 임의입력)로 입력

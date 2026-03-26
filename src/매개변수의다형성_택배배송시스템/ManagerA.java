@@ -1,4 +1,4 @@
-package 택배배송시스템;
+package 매개변수의다형성_택배배송시스템;
 
 // 배송 관리자 클래스
 public class ManagerA {

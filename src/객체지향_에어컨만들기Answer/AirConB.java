@@ -1,4 +1,4 @@
-package 에어컨만들기Answer;
+package 객체지향_에어컨만들기Answer;
 
 import java.util.Calendar;
 import java.util.Scanner;
@@ -11,31 +11,26 @@ import static java.lang.Thread.sleep;
       > 난방기 ON / OFF
       > 바람세기 설정 (1단계 / 2단계 / 3단계)
 */
-public class AirConA {
-    private boolean power;
-    private int tempNow;
-    private int tempSet;
-    private boolean cooler;
-    private boolean heater;
-    private int wind;
+public class AirConB {
+    protected boolean power;
+    protected int tempNow;
+    protected int tempSet;
+    protected boolean cooler;
+    protected boolean heater;
+    protected int wind;
 
     // 생성자
-    public AirConA() {
+    public AirConB() {
         final int[] monthTempArr = { -5, -1, 8, 12, 18, 24, 30, 32, 26, 20, 11, 3 };
         Calendar cal = Calendar.getInstance();
         int month = cal.get(Calendar.MONTH);  // 현재 몇 월인지 정보 추출 - 시스템 설정 시간(배열의 인덱스로 가져옴 > 0 ~ 11)
-        tempNow = monthTempArr[month];        // 현재 월의 온도를 현재 온도 변수에 대입
+        this.tempNow = monthTempArr[month];        // 현재 월의 온도를 현재 온도 변수에 대입
 
-        power = false;
-        tempSet = 22;
-        cooler = true;
-        heater = false;
-        wind = 1;
-    }
-
-    // 전원 설정
-    public void setPower(boolean power) {
-        this.power = power;
+        this.power = false;
+        this.tempSet = 22;
+        this.cooler = true;
+        this.heater = false;
+        this.wind = 1;
     }
 
     // 전체 정보 표시
@@ -87,11 +82,11 @@ public class AirConA {
     }
 
     // 현재 온도 변경
-    private void setTempNow(int temp) {
+    protected void setTempNow(int temp) {
         tempNow += temp;
     }
 
-    private int getTimeFunc() {
+    protected int getTimeFunc() {
         switch (wind) {
             case 1:
                 return 60;
@@ -123,6 +118,62 @@ public class AirConA {
         } else {
             cooler = false;
             heater = false;
+        }
+    }
+    // 전원 설정
+    public void setPower(boolean power) { this.power = power; }
+}
+
+class SmartAirConB extends AirConB {
+    private boolean autoMode;
+
+    public SmartAirConB() {
+        this.autoMode = false;
+    }
+
+    @Override
+    public void setAirCon(Scanner sc) {
+        System.out.println("현재 온도는 " + tempNow + "도 입니다.");
+        System.out.print("Smart Mode를 켜시겠습니까?\n(온도 [20도], 바람세기 [2단계] 고정) (yes / no) : ");
+        String autoOnOff = sc.nextLine();
+        if (autoOnOff.equalsIgnoreCase("yes")) {
+            System.out.println("Smart Mode를 실행합니다.");
+            autoMode = true;
+            tempSet = 20;
+            wind = 2;
+
+            if (tempNow > tempSet) {    // 온도 내려야 하는 경우
+                System.out.println("Cooler 가 동작합니다.");
+                cooler = true;
+                heater = false;
+            } else if (tempNow < tempSet) {     // 온도 올려야 하는 경우
+                System.out.println("Heater 가 동작합니다.");
+                cooler = false;
+                heater = true;
+            } else {
+                cooler = false;
+                heater = false;
+            }
+        } else {
+            System.out.print("온도 설정 : ");
+            tempSet = sc.nextInt();
+            sc.nextLine();
+            System.out.print("바람 세기 : ");
+            wind = sc.nextInt();
+            sc.nextLine();
+
+            if (tempNow > tempSet) {    // 온도 내려야 하는 경우
+                System.out.println("Cooler 가 동작합니다.");
+                cooler = true;
+                heater = false;
+            } else if (tempNow < tempSet) {     // 온도 올려야 하는 경우
+                System.out.println("Heater 가 동작합니다.");
+                cooler = false;
+                heater = true;
+            } else {
+                cooler = false;
+                heater = false;
+            }
         }
     }
 }

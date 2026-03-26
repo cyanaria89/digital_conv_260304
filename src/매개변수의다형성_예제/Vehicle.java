@@ -1,4 +1,4 @@
-package 매개변수의다형성2;
+package 매개변수의다형성_예제;
 
 public class Vehicle {
     public void move() {
