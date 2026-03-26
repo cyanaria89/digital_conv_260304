@@ -1,0 +1,43 @@
+package OOP_자동차만들기Copy;
+
+public class Sedan extends Car implements AirCon, Audio, AutoPilot {
+    public Sedan(String name) {
+        this.speed = 200;       // 속도 km / h
+        this.fuelEffi = 12.0;   // 연비 km / L
+        this.fuelTank = 45;     // 연료탱크 L
+        this.seats = 4;         // 좌석 수
+        this.name = name;       // 이름
+        this.isOn = false;      // 부가기능 ON / OFF
+    }
+
+    // Sedan 부가기능 : 트렁크 좌석화 - 좌석 1 추가
+    @Override
+    public void setMode(boolean isOn) {
+        if (isOn) {
+            seats = 5;  // seats(4) + 1
+        }
+    }
+
+    @Override
+    public String airCon(boolean onOff) {
+        if (onOff) {
+            this.fuelEffi *= 0.95;
+            return "ON";
+        }
+        return "OFF";
+    }
+
+    @Override
+    public String audio(boolean onOff) {
+        return (onOff ? "ON" : "OFF");
+    }
+
+    @Override
+    public String autoPilot(boolean onOff) {
+        if (onOff) {
+            this.speed *= 0.9;
+            return "ON";
+        }
+        return "OFF";
+    }
+}
